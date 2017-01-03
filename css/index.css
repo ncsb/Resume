@@ -151,6 +151,14 @@ html, body, .main {
     left: -1.8rem;
 
 }
+/* 背景图片 */
+.slide2-bg-bt,.slide3-bg-bt{
+    position: absolute;
+    left:1rem;
+    bottom: 0;
+    width:1.6rem;
+    height:1.6rem;
+}
 
 #page1 .slide1-title {
     -webkit-animation:bounce 1s 1 both;
