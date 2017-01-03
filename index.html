@@ -1,17 +1,157 @@
-<h1>zhouqian 个人简历</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>个人简历</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script>
+        ~(function(){
+            var winWidth = document.documentElement.clientWidth;
+            var winHeight = document.documentElement.clientHeight;
+            if(winWidth<640){
+                document.documentElement.style.fontSize = 100/640*winWidth+'px';
+            }
+            // js控制动态计算 布局盒子的margin-top的值
+            // 百分比其实是比较好的布局方式
+            console.log(winWidth,winHeight);
+        })();
+    </script>
 
-<h2> 个人信息</h2>
+</head>
+<body>
+<section class="main">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide1">
+                <div class="slide1-title"><span>周大千</span></div>
+                <div class="slide1-line">
+                    <div></div>
+                </div>
+                <div class="slide1-img"><img src="img/1.png" alt=""></div>
+            </div>
+            <div class="swiper-slide slide2 ">
+                <div class="slide2-box">
+                    <div class="slide2-bg">
+                        <img src="img/bg-big.png" alt="">
+                    </div>
+                    <div class="slide2-title"><span>简介</span></div>
+                    <div class="slide2-bg2">
+                        <img src="img/icon3.png" alt="">
+                    </div>
+                    <div class="slide2-bg1">
+                        <img src="img/icon2.png" alt="">
+                    </div>
+                    <div class="slide2-text text-r">
+                        <p>姓名：周大千</p>
+                        <p>籍贯：湖南</p>
+                        <p>性别：女</p>
+                        <p>爱好：女</p>
+                    </div>
+                    <div class="slide2-text text-l">
+                        <p>应聘职位</p>
+                        <p>前端工程师</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide slide3 ">
+                <div class="slide2-box">
+                    <div class="slide2-bg">
+                        <img src="img/bg-big.png" alt="">
+                    </div>
+                    <div class="slide2-title">技能</div>
+                    <div class="slide2-bg2">
+                        <img src="img/icon3.png" alt="">
+                    </div>
+                    <div class="slide2-bg1">
+                        <img src="img/icon2.png" alt="">
+                    </div>
+                    <div class="slide2-text text-r">
+                        <p>JS</p>
+                        <p>CSS3</p>
+                        <p>HTML5</p>
+                        <p>NODE</p>
+                        <p>AJAX</p>
+                    </div>
+                    <div class="slide2-text text-l">
+                        <p>Angular</p>
+                        <p>React</p>
+                        <p>Vue</p>
+                        <p>jQuery</p>
+                    </div>
+                </div>
+             </div>
+             <div class="swiper-slide slide4">
+                 <div class="wechat">
+                     <img src="img/wechat.png" alt="">
+                 </div>
+                 <div class="link-info">
+                     <!--<p>电话</p>-->
+                     <p><a href="tel:15388004270">15388004270</a></p>
+                     <!--<br/>-->
+                     <!--<p>邮箱</p>-->
+                     <p>515812016@qq.com</p>
+                 </div>
+             </div>
+        </div>
+    </div>
+    <div class="music">
+        <audio src="img/cool08025.mp3" autoplay loop></audio>
+        <!--<audio src="img/beyond.mp3" autoplay loop></audio>-->
+    </div>
 
-<br/>
-<br/>
-<br/>
-<br/>
+</section>
 
+<script src="js/swiper.min.js"></script>
+<script>
+    var swpier = new Swiper('.swiper-container', {
+        direction: 'vertical',
+        loop: true,
+        onTransitionEnd: function (cur) {
+            var curIndex = cur.activeIndex;
+            var slides = cur.slides;
+            var clsName = 'page' + curIndex;
+            console.log(curIndex);
+            // 0   1 2 3 4    5  0是4的重复  5是1重复
+            if (curIndex == 0) {
+                clsName = 'page4';
+            } else if (curIndex == slides.length - 1) {
+                clsName = 'page1';
+            }
+            for (var i = 0; i < slides.length; i++) {
+                if (i == curIndex) {
+                    slides[i].id = clsName;
+                } else {
+                    slides[i].id = '';
+                }
+            }
+        },
+    });
+</script>
 
-<h2> 项目经验</h2> 
-
-<br/>
-<br/>
-<br/>
-<br/>
-<h2> 工作经验</h2> 
+<script>
+    window.onload = function () {
+        var audio = document.querySelector('audio');
+        var music = document.querySelector('.music');
+        //dom加载完成播放音频
+        audio.play();
+        music.className = "music music-move";
+        //绑定单击事件
+        music.onclick = function () {
+            if (audio.paused) {
+                //播放
+                audio.play();
+                this.className = "music music-move";
+            } else {
+                audio.pause();
+                //关闭动画
+                this.className = "music";
+            }
+        }
+    }
+</script>
+</body>
+</html>
