@@ -24,7 +24,7 @@ html, body, .main {
 /*background: #E6E9EE;*/
 /*}*/
 .swiper-slide {
-    background: #fff url("../img/bg.png");
+    background: #fff url("http://img.dumphp.com/resumeBg.png");
     background-size: cover;
     background-origin: content-box;
     left: 0;
