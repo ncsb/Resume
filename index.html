@@ -9,16 +9,18 @@
     <link rel="stylesheet" href="css/swiper.min.css">
     <link rel="stylesheet" href="css/index.css">
     <script>
-        ~(function(){
-            var winWidth = document.documentElement.clientWidth;
-            var winHeight = document.documentElement.clientHeight;
-            if(winWidth<640){
-                document.documentElement.style.fontSize = 100/640*winWidth+'px';
-            }
-            // js控制动态计算 布局盒子的margin-top的值
-            // 百分比其实是比较好的布局方式
-            console.log(winWidth,winHeight);
-        })();
+    ~function () {
+    var winW = document.documentElement.clientWidth;
+    var desW = 640;
+    var htmlFont = winW / desW * 100;
+    //当屏幕宽度大于等于640，  min-width: 640
+    if (winW >= 640) {
+        window.htmlFont = 100;
+        return;
+    }
+    window.htmlFont = htmlFont;
+    document.documentElement.style.fontSize = htmlFont + 'px';
+}();
     </script>
 
 </head>
